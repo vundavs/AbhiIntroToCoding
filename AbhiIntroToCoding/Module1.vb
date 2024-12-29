@@ -93,12 +93,66 @@ Module Module1
         End If
 
         'ITERATION
-        'Outputting the ten times table
+
+        'COUNTER CONTROLLED
+        'Method 1: Outputting the ten times table
+        'Inclusive so i = 1,2,3,4,5,6,7,8,9,10 before the loop ends 
         For i = 1 To 10
             Console.WriteLine(i * 10)
         Next
 
+        'How you would use steps to increment in diff ways not just the default +1 each time
+        For i = 1 To 10 Step 2
+            Console.WriteLine(i * 10)
+        Next
 
+        'Method 2: Outputting each letter of name on a separate line
+        'Iterating through an iterable item e.g. strings, arrays, lists etc. 
+        For Each ch In name
+            Console.WriteLine(ch)
+        Next
+
+        'CONDITION-CONTROLLED LOOPS
+
+        'Method 1:
+        Dim Answer As String
+        While IsValid = False
+            Console.Write("Is it valid NOW? (Y/N) ")
+            Answer = Console.ReadLine()
+            If Answer = "Y" Then
+                IsValid = True
+            End If
+        End While
+
+        'Method 2: 
+        Dim CanEnd As Boolean = False
+        Do
+            Console.Write("Can I end this program now? (Y/N) ")
+            Answer = Console.ReadLine()
+            If Answer = "Y" Then
+                CanEnd = True
+            End If
+        Loop Until CanEnd = True
+        'OR.....
+        Do
+            Console.Write("Can I end this program now? (Y/N) ")
+            Answer = Console.ReadLine()
+            If Answer = "Y" Then
+                CanEnd = True
+            End If
+        Loop While CanEnd = False
+
+        'NESTED ITERATION 
+        'Example: Outputting times tables from 1 to 12
+        For i = 1 To 12
+            For j = 1 To 12
+                Console.Write((i * j).ToString.PadLeft(4)) 'The padding is just for formatting don't worry
+            Next
+            Console.WriteLine()
+        Next
+        'KEY NOTE: You MUST use different variables for the counter e.g. i,j,k or a,b,c etc. 
+        'You can nest any type of loop (count or conditioned controlled)
+        'For example, a for loop can be nested inside a while loop or a while loop can be nested within a for loop.
 
         Console.ReadLine() 'waiting on input - program won't close immediately
     End Sub
