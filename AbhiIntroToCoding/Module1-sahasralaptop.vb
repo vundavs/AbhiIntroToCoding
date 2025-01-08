@@ -101,38 +101,4 @@ Module Module1
         Next
 
         For i = 10 To 1 Step -1
-            Console.WriteLine(i * 10)
-        Next
-
-        For Each letter In Name
-            Console.Write(Char.ToUpper(letter))
-        Next
-        Console.WriteLine()
-
-        'WHILE LOOPS
-
-        Dim Guess, Answer As Integer
-        Guess = 0
-        Answer = 15
-        While Guess <> Answer
-            Console.Write("Enter guess: ")
-            Guess = Console.ReadLine()
-        End While
-        Console.WriteLine("Hooray! You guessed it right!")
-
-        Do
-            Console.Write("Enter your guess: ")
-            Guess = Console.ReadLine()
-        Loop Until Guess = Answer
-        Console.WriteLine("Correct. Well Done!")
-
-        Do
-            Console.Write("Enter your guess: ")
-            Guess = Console.ReadLine()
-        Loop While Guess <> Answer
-        Console.WriteLine("Correct. Well Done!")
-
-        Console.ReadLine() 'waiting on input - program won't close immediately
-    End Sub
-
-End Module
+            Console.W
