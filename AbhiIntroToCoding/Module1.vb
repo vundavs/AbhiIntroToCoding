@@ -146,69 +146,83 @@ Module Module1
         '    End If
         'Loop While CanEnd = False
 
-        'NESTED ITERATION 
-        'Example: Outputting times tables from 1 to 12
-        For i = 1 To 12
-            For j = 1 To 12
-                Console.Write((i * j).ToString.PadLeft(4)) 'The padding is just for formatting don't worry
-            Next
-            Console.WriteLine()
-        Next
-        'KEY NOTE: You MUST use different variables for the counter e.g. i,j,k or a,b,c etc. 
-        'You can nest any type of loop (count or conditioned controlled)
-        'For example, a for loop can be nested inside a while loop or a while loop can be nested within a for loop.
+        ''NESTED ITERATION 
+        ''Example: Outputting times tables from 1 to 12
+        'For i = 1 To 12
+        '    For j = 1 To 12
+        '        Console.Write((i * j).ToString.PadLeft(4)) 'The padding is just for formatting don't worry
+        '    Next
+        '    Console.WriteLine()
+        'Next
+        ''KEY NOTE: You MUST use different variables for the counter e.g. i,j,k or a,b,c etc. 
+        ''You can nest any type of loop (count or conditioned controlled)
+        ''For example, a for loop can be nested inside a while loop or a while loop can be nested within a for loop.
 
-        'BOOLEAN OPERATORS
-        Dim DummyNumber As Integer = 32
+        ''BOOLEAN OPERATORS
+        'Dim DummyNumber As Integer = 32
 
-        If DummyNumber >= 32 And DummyNumber <= 40 Then
-            Console.WriteLine("Correct!")
-        End If
+        'If DummyNumber >= 32 And DummyNumber <= 40 Then
+        '    Console.WriteLine("Correct!")
+        'End If
 
-        If DummyNumber < 10 Or DummyNumber > 20 Then
-            Console.WriteLine("Correct!")
-        End If
+        'If DummyNumber < 10 Or DummyNumber > 20 Then
+        '    Console.WriteLine("Correct!")
+        'End If
 
-        If Not DummyNumber = 32 Then
-            Console.WriteLine("Dummy number is not equal to 32")
-        End If
-        'TIP: DONT USE MORE THAN TWO "CLAUSES"
+        'If Not DummyNumber = 32 Then
+        '    Console.WriteLine("Dummy number is not equal to 32")
+        'End If
+        ''TIP: DONT USE MORE THAN TWO "CLAUSES"
 
-        'DATA STRUCTURES
-        'Arrays 
-        'Declaring an Array (of integers)
-        Dim FirstArray(5) As Integer
+        ''DATA STRUCTURES
+        ''Arrays 
+        ''Declaring an Array (of integers)
+        'Dim FirstArray(5) As Integer
 
-        'Adding items to an array 
+        ''Adding items to an array 
 
-        'For i = 0 To 4
+        ''For i = 0 To 4
+        ''    Console.Write("Enter number: ")
+        ''    FirstArray(i) = Console.ReadLine()
+        ''Next
+
+        ''Do THIS don't do above (more dynamic)
+        'For i = 0 To FirstArray.Length - 1
         '    Console.Write("Enter number: ")
         '    FirstArray(i) = Console.ReadLine()
         'Next
 
-        'Do THIS don't do above (more dynamic)
-        For i = 0 To FirstArray.Length - 1
-            Console.Write("Enter number: ")
-            FirstArray(i) = Console.ReadLine()
-        Next
 
+        ''Accessing items through an array 
+        ''Use this if changing the element
+        'For i = 0 To FirstArray.Length - 1
+        '    Console.WriteLine(FirstArray(i))
+        'Next
 
-        'Accessing items through an array 
-        'Use this if changing the element
-        For i = 0 To FirstArray.Length - 1
-            Console.WriteLine(FirstArray(i))
-        Next
+        ''Use if you're not changing any elements
+        'For Each digit In FirstArray
+        '    Console.WriteLine(digit)
+        'Next
 
-        'Use if you're not changing any elements
-        For Each digit In FirstArray
-            Console.WriteLine(digit)
-        Next
-
-        'Updating values in an array 
-        FirstArray(4) = 9
+        ''Updating values in an array 
+        'FirstArray(4) = 9
 
         'TASK: Search through a given array and create a new array containing numbers that are 
         'less than 50 but greater than 10. 
+
+        'EXT: WITH A LIST INSTEAD (SM BETTER)
+
+        Dim ListOfNewNums As New List(Of Integer)
+        For i = 0 To ToSearchArray.Length - 1
+            If ToSearchArray(i) > 10 And ToSearchArray(i) < 50 Then
+                ListOfNewNums.Add(ToSearchArray(i))
+            End If
+        Next
+
+        For Each num In ListOfNewNums
+            Console.WriteLine(num)
+        Next
+
 
         'Records 
         'Declaring a record (example town info)
