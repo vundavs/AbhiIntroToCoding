@@ -1,8 +1,17 @@
-﻿Imports System.Globalization
+﻿Imports System.Data.SqlTypes
+Imports System.Globalization
 Imports System.Linq.Expressions
 Imports System.Runtime.Remoting.Proxies
 
 Module Module1
+
+    Structure Town
+        Dim townName As String
+        Dim population As Integer
+        Dim area As Decimal
+        Dim county As String
+    End Structure
+
 
     Sub Main()
         ' SECRET
@@ -223,17 +232,83 @@ Module Module1
             Console.WriteLine(num)
         Next
 
+        '2D Arrays 
+        ' The biggest thing to note with 2D arrays, you can only put the same datatypes
+        'Dim ChessBoard(8, 8,) As String
+        'ChessBoard(4, 0) = "King"
 
-        'Records 
+        'For i = 0 To 7
+        '    For j = 0 To 7
+        '        Console.Write("Enter the occupier: ")
+        '        ChessBoard(i, j) = Console.ReadLine()
+        '    Next
+        'Next
+
+
+        'Records
+        'They're defined outside of the sub routine ^^ DEFINED ABOVE
         'Declaring a record (example town info)
+        Dim t0 As Town
 
         'Adding to a record 
+        t0.townName = "Leeds"
+        t0.population = 16
+        t0.area = 78
+        t0.county = "West Yorkshire"
 
         'Accessing items in a record 
+        Console.WriteLine(t0.townName)
+
+        Dim t1 As Town
+        t1.townName = "York"
+        t1.population = 210000
+        t1.area = 271.94
+        t1.county = "North Yorkshire"
+
+        Dim t2 As Town
+        t2.townName = "Bath"
+        t2.population = 101557
+        t2.area = 29.0
+        t2.county = "Somerset"
+
+        Dim t3 As Town
+        t3.townName = "Luton"
+        t3.population = 218045
+        t3.area = 43.35
+        t3.county = "Bedfordshire"
+
+        Dim t4 As Town
+        t4.townName = "Dundee"
+        t4.population = 148280
+        t4.area = 67.0
+        t4.county = "Scotland"
+
+        Dim t5 As Town
+        t5.townName = "Norwich"
+        t5.population = 143118
+        t5.area = 39.02
+        t5.county = "Norfolk"
+
 
         'TASK01: Find the total area of all towns
+        Dim TotalArea As Decimal
+        TotalArea = t1.area + t2.area + t3.area + t4.area + t5.area
+        Console.Write(TotalArea)
+
         'TASK02: Find the town name with the largest population
+        Dim Towns() As Town = {t1, t2, t3, t4, t5}
+        Dim LargestPop As Integer = 0
+        Dim LargestName As String
+        For Each town In Towns
+            If town.population > LargestPop Then
+                LargestPop = town.population
+                LargestName = town.townName
+            End If
+        Next
+        Console.WriteLine(LargestName)
+
         'TASK03: Find the average population of all towns
+
         'TASK04: Find the town with the longest town name (to get the length of a string you use StringName.Length())
         'EXT: List all of the towns that are in a county that the user enters. e.g The user enters
         '"West Yorkshire" And the program outputs "Heckmondwike Leeds"
