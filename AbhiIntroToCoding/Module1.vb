@@ -308,8 +308,29 @@ Module Module1
         Console.WriteLine(LargestName)
 
         'TASK03: Find the average population of all towns
+        Dim averagePopulation As Integer
+        For Each Town In Towns
+            averagePopulation += Town.population
+        Next
+        averagePopulation /= Towns.Length
+        Console.WriteLine(averagePopulation)
+
+        'Calculating Factorials
+        Dim result As Integer = 1
+        For i = 1 To 5
+            result *= i
+        Next
+        Console.WriteLine(result)
 
         'TASK04: Find the town with the longest town name (to get the length of a string you use StringName.Length())
+        Dim LongestName As String = ""
+        For Each town In Towns
+            If town.townName.Length() > LongestName.Length() Then
+                LongestName = town.townName
+            End If
+        Next
+        Console.WriteLine(LongestName)
+
         'EXT: List all of the towns that are in a county that the user enters. e.g The user enters
         '"West Yorkshire" And the program outputs "Heckmondwike Leeds"
 
