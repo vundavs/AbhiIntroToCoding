@@ -1,7 +1,10 @@
 ﻿Imports System.Data.SqlTypes
 Imports System.Globalization
 Imports System.Linq.Expressions
+Imports System.Reflection
 Imports System.Runtime.Remoting.Proxies
+Imports Microsoft.VisualBasic.ApplicationServices
+Imports System.Security.Policy
 
 Module Module1
 
@@ -337,17 +340,69 @@ Module Module1
         'Consequently, following the order of the spec, its file handling in VB next
         'But we'll leave that for the end 
 
+        'BUT FIRST, default values 
+        ' If we just Dim a variable with a certain datatype and don't assign a value to it, 
+        ' it will have a default value depending on the datatype
+        ' String: null
+        ' Integer and Decimal: 0
+        ' Boolean: False 
+        ' Char?
+        Dim Initial As Char
+        Console.WriteLine("Initial is " & Initial)
+        ' Single? Double?
+        Dim bankBalance As Double
+        Console.WriteLine("bankBalance is " & bankBalance)
+        Dim cashFlow As Single
+        Console.WriteLine("bankBalance is " & bankBalance)
+        ' Let's check those by printing them out
+
+
         'STRING HANDLING OPERATIONS 
-        'Getting the length of a string 
-        'Getting the position of a string 
-        'Getting substrings from a string (getting a 'chunk' from the string)
-        'Concatenating strings
-        'Converting a character to its character code 
-        'Converting a character to code to the character 
-        'Converting a string to an integer 
-        'Converting a string to a real
-        'Converting an integer to a string
-        'Converting a real to a string 
+        Dim BookName As String = "Chamber of Secrets"
+        Dim NumberStr As String = "22"
+        'Getting the length of a string - StringName.Length()
+        Console.WriteLine(BookName.Length())
+        'Getting the position of a string - StringName.IndexOf(character), StringName(Index position)
+        Console.WriteLine("The first index of e is at " & BookName.IndexOf("e"))
+        Console.WriteLine(BookName(0))
+        'Getting substrings from a string (getting a 'chunk' from the string) - StringName.Substring(starting index, length)
+        Console.WriteLine(BookName.Substring(1, 3))
+        'Concatenating strings - We use &
+        Console.WriteLine(BookName & " is the best Harry Potter book.")
+        'Converting a character to its character code - Asc(Character)
+        Console.WriteLine(Asc("A"))
+        'Converting a character to code to the character - Chr(Character code)
+        Console.WriteLine(Chr(65))
+        'Converting a string to an integer - CInt(StringName)         
+        Dim NumberInt As Integer = CInt(NumberStr)
+        Console.WriteLine(VarType(CInt(NumberStr))) ' should ouptut integer
+        'Converting a string to a real - CDec(StringName)
+        Dim NumberReal As Decimal = CDec(NumberStr)
+        'Converting an integer to a string - IntegerName.ToString() Or CStr(StringName)
+        Console.WriteLine(VarType(NumberInt.ToString()))
+        Console.WriteLine(VarType(CStr(NumberInt)))
+        'Converting a real to a string - Real.ToString() Or CStr(StringName)
+        Console.WriteLine(VarType(NumberReal.ToString()))
+        Console.WriteLine(VarType(CStr(NumberReal)))
+
+
+        'Other useful ones:
+        'Reversing a string - StrReverse(StringName)
+        'Replacing eveyr occurance of a certain char with another char - StringName.Replace("oldchar", "newchar")
+        'Converting a string to uppercase - StringName.ToUpper()
+        'Converting a string to lowercase - StringName.ToLower()
+
+        'Task01
+        'Separate the string "This_is_a_string" by the "_" character
+        'and output each separated value line by line
+
+        'Task02 
+        'Take a user input of a string and separate the input by the space
+        'character and output each word line by line
+
+        'Task03
+        'Take a user input of a string and a user input of a character and split the
+        'string by the character.
 
 
         Console.ReadLine() 'waiting on input - program won't close immediately
