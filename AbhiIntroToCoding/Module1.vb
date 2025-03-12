@@ -386,9 +386,18 @@ Module Module1
         Console.WriteLine(VarType(CStr(NumberReal)))
 
 
+        'Split a string by a certain character
+        'Input: String, Output: Array of each component
+        Dim ArrayBookName() As String
+        ArrayBookName = BookName.Split(" ")
+        For Each Word In ArrayBookName
+            Console.WriteLine(Word)
+        Next
+
+
         'Other useful ones:
         'Reversing a string - StrReverse(StringName)
-        'Replacing eveyr occurance of a certain char with another char - StringName.Replace("oldchar", "newchar")
+        'Replacing every occurance of a certain char with another char - StringName.Replace("oldchar", "newchar")
         'Converting a string to uppercase - StringName.ToUpper()
         'Converting a string to lowercase - StringName.ToLower()
 
@@ -397,12 +406,16 @@ Module Module1
         'and output each separated value line by line
 
         'Task02 
-        'Take a user input of a string and separate the input by the space
-        'character and output each word line by line
+        'Take a user input of some text that needs to be encrupted and a shift key to shift
+        'each of the characters by that shift key and output the encrypted text
 
-        'Task03
-        'Take a user input of a string and a user input of a character and split the
-        'string by the character.
+
+
+        'Generating random numbers 
+        Dim n As New Random
+        Dim RandomNumber As Integer
+        RandomNumber = n.Next(1, 5) 'min value is inclusive and max value is exclusive 
+
 
 
         Console.ReadLine() 'waiting on input - program won't close immediately
