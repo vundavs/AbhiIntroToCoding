@@ -410,15 +410,110 @@ Module Module1
         'each of the characters by that shift key and output the encrypted text
 
 
-
         'Generating random numbers 
         Dim n As New Random
         Dim RandomNumber As Integer
         RandomNumber = n.Next(1, 5) 'min value is inclusive and max value is exclusive 
 
+        'Subroutines
+        'A subroutine is a named 'out of line’ block of code that may be executed (called) by simply writing
+        'its name in a program statement.
+
+        'Why do we use them?
+        '• It makes your code easier to read and understand
+        '• It may make your program more memory efficient (uses up less memory when it's running)
+        '• It makes your program easier to maintain (easier to update)
+        '• It makes your code easier to test a nd debug
+        '• It makes it easier for someone else to look at your code
+        '• We can reuse the code however many times you need to
+
+        'There are two different types of subroutines:
+
+        'Functions
+        '   A function HAS TO RETURN A VALUE
+        '   Key words: 'function', 'end function' and 'return'
+        '   You have to declare a data type – e.g. 'Function As Integer'
+        '   (this means that an integer will be returned)
+        '   General example
+        '   Function Identifier As DataType
+        '       Code Here
+        '       Return SomeValueWithSameDataType
+        '   End Function       
+        '   Once a function returns a value the function will stop running 
+        '   This can be an advantage as we can return a default value 
+        '   Example is shown below Sub Main
+        '   To call a function you need to "save" the returned value somewhere 
+        '   and then you can do whatever you want with it e.g. output it, add something to it,
+        '   concatenate something to it 
+        Dim ResultOfFunction As Boolean = IsAGreaterThanB()
+        Console.WriteLine(ResultOfFunction)
+
+        'Procedures
+        '   Can't return a value
+        '   Don't have to declare a data type 
+        '   General example
+        '   Sub Identifier 
+        '       (can do anything else like outputting a value, assignment etc.)
+        '   End Sub 
+
+        ' You can also pass values into both functions and subroutines
+        ' I'll show a few examples below
+
+        ResultOfFunction = IsAGreaterThanBVer2(2, 0)
+        Console.WriteLine(ResultOfFunction)
+
+        Console.WriteLine(AreaOfCircle(5))
+        Console.WriteLine(AreaOfCircle(20))
+
+        OutputTimesTable(5)
+
+        'Tasks
+        '01 Write a function that takes an input of an integer and then return a boolean value 
+        '   based on whether it's prime or not 
+        '02 Write a subroutine that will OUTPUT the date in the format "Today is 15/9 and the year is 2020"
+        '   Today.Date(), Today.Time(), Today.Day(), Today.Month(), Today.Year()
+
+        ' Now lets try do a mini project
+        ' Output a menu with two options: 1. decypher 2. cipher
+        ' Then ask the user which option they want
+        ' Then do accordingly - you'll have to ask for the key to be able to decypher or cipher 
+        ' their text 
+        ' Display the decyphered or ciphered text
 
 
         Console.ReadLine() 'waiting on input - program won't close immediately
     End Sub
+
+    Function IsAGreaterThanB() As Boolean
+        Dim a, b As Integer
+        a = 1
+        b = 2
+        If a > b Then
+            Return True
+        End If
+        Console.WriteLine("Will I run?")
+        Return False
+    End Function
+    Function IsAGreaterThanBVer2(a As Integer, b As Integer) As Boolean
+        If a > b Then
+            Return True
+        End If
+        Console.WriteLine("Will I run?")
+        Return False
+    End Function
+
+    Function AreaOfCircle(Radius As Decimal) As Decimal
+        Dim Area As Decimal
+        Area = Math.PI * Math.Pow(Radius, 2)
+        Return Area
+    End Function
+
+    Sub OutputTimesTable(TimesTable As Integer)
+        For i = 1 To 12
+            Console.Write(i * TimesTable & " ")
+        Next
+    End Sub
+
+
 
 End Module
